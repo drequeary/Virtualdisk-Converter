@@ -8,9 +8,6 @@ function Main
 
     Test-Exe
 
-    $Key = 0
-    $CurrentSelection = 0    
-    $Options = @("vdi", "vmdk", "vhd", "ovf", "ova")
     $NewUUID = $null
 
     # ------------------------------------------------ #

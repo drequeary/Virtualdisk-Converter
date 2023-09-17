@@ -6,7 +6,11 @@ function Main
     Write-Host "Current Location: $PWD"
     Write-Host "-----------------------------------------------------------------------------------"
 
-    Test-Exe
+    if ($null -eq (Get-Command "vBoxManage.exe" -ErrorAction SilentlyContinue)) {    
+        Write-Host "vBoxManage wasn't found or is not executable." -ForegroundColor Red
+        Write-Host "Please enter the location of vBoxManage." -ForegroundColor DarkRed
+        EXIT
+    }
 
     $NewUUID = $null
 
@@ -146,15 +150,6 @@ function Invoke-Conversion
     Write-Host
     Write-Host "DONE" -ForegroundColor Green
     Pause
-}
-
-function Test-Exe
-{
-    if ($null -eq (Get-Command "vBoxManage.exe" -ErrorAction SilentlyContinue)) {    
-        Write-Host "vBoxManage wasn't found or is not executable." -ForegroundColor Red
-        Write-Host "Please enter the location of vBoxManage." -ForegroundColor DarkRed
-        EXIT
-    }
 }
 
 function Trim-String

@@ -23,7 +23,6 @@ function Main
 
     Write-Host "---------------------"
 
-    [console]::CursorVisible = $False
     Write-Host "Select which type of disk you want to convert to." -ForegroundColor Cyan
     Write-Host "1 - VDI"
     Write-Host "2 - VMDK"

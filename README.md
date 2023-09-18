@@ -11,4 +11,4 @@ You must have vBoxManage.exe on your system. It comes with VirtualBox.
 * Add `C:\Program Files\Oracle\VirtualBox` to your system path.
 * Download zip.
 * Extract vdconvert.ps1
-* Run by opening in Powershell or `./vdconvert.ps1`
+* Run by right clicking and opening in Powershell or running `./vdconvert.ps1` in Powershell.

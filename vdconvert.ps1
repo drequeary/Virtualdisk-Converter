@@ -124,6 +124,10 @@ function Invoke-Conversion
 
     Invoke-Expression $Run
 
+    if ($LASTEXITCODE -ne 0) {
+        Pause
+    }
+
     if(($NewUUID -eq "" -or $NewUUID -eq "y" -or $NewUUID -eq "yes") -and $OutputFormat -ne "ovf" -and $OutputFormat -ne "ova") {
         Write-Host
         Write-Host "Changing UUID..." -ForegroundColor Cyan
@@ -137,7 +141,6 @@ function Invoke-Conversion
         Write-Host
         Write-Host "There was an error changing UUID. See above output for details." -ForegroundColor Red
         Pause
-        EXIT
     }
 
     Write-Host

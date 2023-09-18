@@ -1,7 +1,7 @@
 # vBoxManage Interactive Virtual Disk Converter
  A simple, interactive script for converting virtual disk formats using VBoxManage.
 
-![virtual disk converter](https://cdn.drequeary.me/public/assets/img/virtualdisk-converter.png)
+![virtual disk converter](https://cdn.drequeary.me/public/assets/img/virtualdisk-converter2.png)
 
 # Requirements
 Powershell (was made and tested with Powershell 7)  

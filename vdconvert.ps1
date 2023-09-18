@@ -18,7 +18,7 @@ function Main
 
     # Get user input.
     Write-Host "Enter virtual disk file you wish to convert." -ForegroundColor Cyan
-    Write-Host "You can put file path or VirtualBox virutal machine name for OVF/OVA."
+    Write-Host "You can put file path or VirtualBox virtual machine name for OVF/OVA."
     do {
         $InputFile = Read-Host "[Enter path or name]"
     } while ($InputFile -eq "")
@@ -123,13 +123,6 @@ function Invoke-Conversion
     Start-Sleep 2
 
     Invoke-Expression $Run
-
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host
-        Write-Host "There was an error converting virtual disk. See above output for details." -ForegroundColor Red
-        Pause
-        EXIT
-    }
 
     if(($NewUUID -eq "" -or $NewUUID -eq "y" -or $NewUUID -eq "yes") -and $OutputFormat -ne "ovf" -and $OutputFormat -ne "ova") {
         Write-Host

@@ -2,13 +2,13 @@ function Main
 {
     Clear-Host
     
-    Write-Host "vBoxManage VD Converter by DeAndre Queary - v1.0.0" -ForegroundColor Green
+    Write-Host "vBoxManage VD Converter by DeAndre Queary - v0.1.0" -ForegroundColor Green
     Write-Host "Current Location: $PWD"
     Write-Host "-----------------------------------------------------------------------------------"
 
     if ($null -eq (Get-Command "vBoxManage.exe" -ErrorAction SilentlyContinue)) {    
         Write-Host "vBoxManage wasn't found or is not executable." -ForegroundColor Red
-        Write-Host "Please enter the location of vBoxManage." -ForegroundColor DarkRed
+        Write-Host "Please add virtualbox installation folder to your system path." -ForegroundColor DarkRed
         EXIT
     }
 

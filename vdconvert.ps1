@@ -1,3 +1,18 @@
+<#PSScriptInfo
+
+.SYNOPSIS
+    Interactive script for converting virtual disks with vBoxManage.
+
+.DESCRIPTION
+    This script makes it easier to convert virtual disks between different
+    formats using vBoxManage.
+
+.CREDITS
+    Developer - DeAndre Queary @drequeary.
+    GitHub - https://github.com/drequeary
+    Repository - https://github.com/drequeary/virtualdisk-converter
+#>
+
 function Main
 {
     Clear-Host
@@ -110,12 +125,14 @@ function Invoke-Conversion
     )
 
     $InputFile = Trim-String $InputFile
-    $OutputFilename = Trim-String "$OutputFilename.$OutputFormat"
+    $OutputFilename = Trim-String "`"$OutputFilename.$OutputFormat"
 
     if ($OutputFormat -eq "ovf" -or $OutputFormat -eq "ova") {
-        $Run = "vboxmanage export $InputFile --output $OutputFilename $Arguments"
+        Write-Host "vboxmanage export `"$InputFile`" --output `"$OutputFilename`" $Arguments" -ForegroundColor Magenta
+        $Run = "vboxmanage export `"$InputFile`" --output `"$OutputFilename`" $Arguments"
     } else {
-        $Run = "vboxmanage clonehd $InputFile $OutputFilename --format $OutputFormat $Arguments"
+        Write-Host "vboxmanage clonehd `"$InputFile`" `"$OutputFilename`" --format $OutputFormat $Arguments" -ForegroundColor Magenta
+        $Run = "vboxmanage clonehd `"$InputFile`" `"$OutputFilename`" --format $OutputFormat $Arguments"
     }
 
     Write-Host
@@ -156,7 +173,7 @@ function Trim-String
 
     $String = $String.Trim("'")
     $String = $String.Trim('"')
-    $String = "'$String'".Split(" ")
+    $String = $String.Split(" ")
 
     Return $String
 }

@@ -24,7 +24,8 @@ function Main
     if ($null -eq (Get-Command "vBoxManage.exe" -ErrorAction SilentlyContinue)) {    
         Write-Host "vBoxManage wasn't found or is not executable." -ForegroundColor Red
         Write-Host "Please add virtualbox installation folder to your system path." -ForegroundColor DarkRed
-        EXIT
+        Pause
+		EXIT
     }
 
     $NewUUID = $null
